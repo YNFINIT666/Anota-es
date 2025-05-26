@@ -59,3 +59,39 @@ undefined
   [Symbol(kUniqueHeaders)]: null
 }
 > Servidor rodando na porta 3000
+-----------------------------------------------------------------------------------------------------------------------------
+import express from 'express'
+
+const app = express()
+
+app.get('/usuarios', (req, res) => {
+    res.send('ok, tudo certo')
+})
+
+app.listen(3000)
+
+
+/*
+   
+    1) Tipo de Rota / Método HTTP
+    2)Endereço
+
+*/
+-----------------------------------------------------------------------------------------------------------------------------
+{
+  "name": "api",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node serve.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+  "express": "^5.1.0"
+  }
+}
