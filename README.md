@@ -95,3 +95,14 @@ app.listen(3000)
   "express": "^5.1.0"
   }
 }
+-----------------------------------------------------------------------------------------------------------------------------
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Servidor funcionando!");
+});
+
+app.listen(3000, () => {
+  console.log("Servidor rodando em http://localhost:3000");
+});
