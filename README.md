@@ -106,3 +106,20 @@ app.get("/", (req, res) => {
 app.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");
 });
+----------------------------------------------------------------------------------------------------------------------------
+{
+  "name": "servidor_backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "expres": "^0.0.5",
+    "express": "^5.1.0"
+  },
+  "description": ""
+}
