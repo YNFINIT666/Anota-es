@@ -123,3 +123,38 @@ app.listen(3000, () => {
   },
   "description": ""
 }
+----------------------------------------------------------------------------------------------------------------------------
+const express = require("express");
+const router = express.Router();
+
+router.post("/cadastro", (req, res) => {
+  const { nome, email } = req.body;
+
+  if (!nome || !email) {
+    return res.status(400).json({ erro: "Nome e email são obrigatórios." });
+  }
+
+  res.status(201).json({
+    mensagem: "Usuário cadastrado com sucesso!",
+    usuario: { nome, email }
+  });
+});
+
+module.exports = router;
+----------------------------------------------------------------------------------------------------------------------------
+const express = require("express");
+const fs = require("fs");
+const router = express.Router();
+const dbPath = "./dados/fakeDB.json";
+
+router.get("/:id", (req, res) => {
+  const db = JSON.parse(fs.readFileSync(dbPath));
+  const produto = db.produtos.find(p => p.id === req.params.id);
+  if (produto) {
+    res.json(produto);
+  } else {
+    res.status(404).send("Produto não encontrado");
+  }
+});
+
+module.exports = router;
