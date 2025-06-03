@@ -158,3 +158,26 @@ router.get("/:id", (req, res) => {
 });
 
 module.exports = router;
+----------------------------------------------------------------------------------------------------------------------------
+app.get("/api/products/:id", (req, res) => {
+  const { id } = req.params;
+
+  // Exemplo de produtos salvos em memória
+  const produtos = [
+    {
+      id: "abc123",
+      name: "Refrigerante X",
+      ingredients: ["Água", "Açúcar", "Corante", "Aromatizante artificial"],
+      seal: "Não possui selo de sustentabilidade",
+      warning: "Alto teor de açúcar"
+    }
+  ];
+
+  const produto = produtos.find(p => p.id === id);
+
+  if (produto) {
+    res.json(produto);
+  } else {
+    res.status(404).json({ message: "Produto não encontrado" });
+  }
+});
