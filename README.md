@@ -193,3 +193,28 @@ router.post("/:id/favorites", userController.addFavorite);
 router.post("/:id/history", userController.addHistory);
 
 module.exports = router;
+----------------------------------------------------------------------------------------------------------------------------
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+
+// Middlewares
+app.use(cors());
+app.use(express.json());
+
+// Rotas
+const userRoutes = require('./routes/users');
+const productRoutes = require('./routes/products');
+
+app.get('/', (req, res) => {
+  res.send('Servidor funcionando!');
+});
+
+app.use('/api/users', userRoutes);
+app.use('/api/products', productRoutes);
+
+// Inicialização do servidor
+app.listen(3000, () => {
+  console.log('Servidor rodando em http://localhost:3000');
+});
